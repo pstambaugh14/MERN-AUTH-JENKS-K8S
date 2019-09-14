@@ -71,7 +71,7 @@ pipeline {
 //      }
 //Stage 3 : Deploy Application
  stage('Deploy Application') {
-      withKubeConfig ([credentialsId: 'patrick' {
+      withKubeConfig ([credentialsId: 'patrick'
 //                    caCertificate: '<ca-certificate>',
 //                    serverUrl: '<api-server-address>',
 //                    contextName: '<context-name>',
