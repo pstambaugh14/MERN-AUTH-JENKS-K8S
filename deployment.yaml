@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: MERN-AUTH-JENKS-K8S-service
+  namespace: development
+  labels:
+    app: MERN-AUTH-JENKS-K8S
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        apps: MERN-AUTH-JENKS-K8S-service
+    spec:
+      containers:
+      - name: MERN-AUTH-JENKS-K8S-service
+        image: pstambaugh14/mern-auth-docker:development
+        ports:
+        - containerPort: 3000
+          name: frontEnd
+        - containerPort: 5000
+          name: backEnd
