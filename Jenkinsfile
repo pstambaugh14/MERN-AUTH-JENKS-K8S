@@ -1,5 +1,11 @@
 #!/usr/bin/groovy
 // Declarative Pipeline
+def project = 'MERN-AUTH-JENKS-K8S'
+def appName = 'MERN-AUTH-JENKS-K8S'
+def serviceName = "${appName}-full-stack"
+def imageVersion = 'development'
+def namespace = 'development'
+def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 pipeline {
     agent {
         any {
@@ -54,15 +60,53 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+//        stage('Deploy') {
+//            steps {
+//                echo 'Deploying....'
                 //app-check.sh checks to see if application is running and will spin up if or not running and remove old instance if running
-                sh '"$CUR_DIR_VAR"/app-check.sh'
+//                sh '"$CUR_DIR_VAR"/app-check.sh'
+//            }
+//        }
+//      }
+//Stage 3 : Deploy Application
+ stage('Deploy Application') {
+      switch (namespace) {
+             //Roll out to Dev Environment
+             case "development":
+                  // Create namespace if it doesn't exist
+                  sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
+          //Update the imagetag to the latest version
+                  sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
+                  //Create or update resources
+          sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
+                  sh("kubectl --namespace=${namespace} apply -f k8s/development/service.yaml")
+          //Grab the external Ip address of the service
+                  sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
+                  break
 
-            }
-        }
-      }
+       //Roll out to Dev Environment
+             case "production":
+                  // Create namespace if it doesn't exist
+                  sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
+          //Update the imagetag to the latest version
+                  sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/production/*.yaml")
+          //Create or update resources
+                  sh("kubectl --namespace=${namespace} apply -f k8s/production/deployment.yaml")
+                  sh("kubectl --namespace=${namespace} apply -f k8s/production/service.yaml")
+          //Grab the external Ip address of the service
+                  sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
+                  break
+
+             default:
+                  sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
+                  sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
+                  sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
+                  sh("kubectl --namespace=${namespace} apply -f k8s/development/service.yaml")
+                  sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
+                  break
+   }
+  }
+}
         //Clean Workspace at the end of Build
         post {
           always {
