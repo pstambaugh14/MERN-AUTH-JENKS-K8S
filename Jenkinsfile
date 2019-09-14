@@ -71,6 +71,7 @@ pipeline {
 //      }
 //Stage 3 : Deploy Application
  stage('Deploy Application') {
+      steps {
       withKubeConfig ([credentialsId: 'patrick'
 //                    caCertificate: '<ca-certificate>',
 //                    serverUrl: '<api-server-address>',
@@ -118,7 +119,7 @@ pipeline {
 //                  break
 //        }
    }
-//  }
+  }
 }
         //Clean Workspace at the end of Build
         post {
