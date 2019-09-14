@@ -2,7 +2,7 @@
 // Declarative Pipeline
 def project = 'MERN-AUTH-JENKS-K8S'
 def appName = 'MERN-AUTH-JENKS-K8S'
-def serviceName = "${appName}-full-stack"
+def serviceName = "${appName}-service"
 def imageVersion = 'development'
 def namespace = 'development'
 def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
