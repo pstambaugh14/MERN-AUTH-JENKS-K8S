@@ -72,8 +72,7 @@ pipeline {
 //Stage 3 : Deploy Application
  stage('Deploy Application') {
       steps {
-      withKubeConfig
-                    ([
+      withKubeConfig([
 //                    credentialsId: 'patrick'
                     caCertificate: '/home/patrick/.minikube/ca.crt',
 //                    serverUrl: '<api-server-address>',
