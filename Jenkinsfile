@@ -71,7 +71,7 @@ pipeline {
 //Stage 3 : Deploy Application
  stage('Deploy Application') {
       steps {
-      switch (namespace) {
+        switch (namespace) {
              //Roll out to Dev Environment
              case "development":
                   // Create namespace if it doesn't exist
