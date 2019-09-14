@@ -5,7 +5,8 @@ def appName = 'MERN-AUTH-JENKS-K8S'
 def serviceName = "${appName}-service"
 def imageVersion = 'development'
 def namespace = 'development'
-def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+//def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 pipeline {
     agent {
         any {
@@ -70,6 +71,13 @@ pipeline {
 //      }
 //Stage 3 : Deploy Application
  stage('Deploy Application') {
+      withKubeConfig ([credentialsId: 'patrick',
+//                    caCertificate: '<ca-certificate>',
+//                    serverUrl: '<api-server-address>',
+//                    contextName: '<context-name>',
+//                    clusterName: '<cluster-name>',
+//                    namespace: '<namespace>'
+                    ])
       steps {
 //        switch (namespace) {
              //Roll out to Dev Environment
@@ -79,7 +87,7 @@ pipeline {
           //Update the imagetag to the latest version
                   sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
                   //Create or update resources
-          sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
+                  sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f k8s/development/service.yaml")
           //Grab the external Ip address of the service
                   sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
