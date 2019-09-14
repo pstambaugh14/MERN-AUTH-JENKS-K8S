@@ -99,7 +99,8 @@ pipeline {
 
              default:
                   sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
-                  sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
+                  //sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
+                  sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./*.yaml")
                   //sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./deployment.yaml")
                   //sh("kubectl --namespace=${namespace} apply -f k8s/development/service.yaml")
