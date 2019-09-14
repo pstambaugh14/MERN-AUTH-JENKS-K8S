@@ -104,7 +104,7 @@ pipeline {
                   //sh("kubectl --namespace=${namespace} apply -f k8s/development/deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./deployment.yaml")
                   //sh("kubectl --namespace=${namespace} apply -f k8s/development/service.yaml")
-                  sh("kubectl --namespace=${namespace} apply -f ./service.yaml"
+                  sh("kubectl --namespace=${namespace} apply -f ./service.yaml")
                   sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
                   break
    }
