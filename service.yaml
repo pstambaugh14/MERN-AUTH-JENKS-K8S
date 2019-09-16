@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: MERN-AUTH-JENKS-K8S
+  name: mern-auth-jenks-k8s
   namespace: development
 spec:
   ports:
@@ -11,4 +11,4 @@ spec:
       port: 5000
   type: LoadBalancer
   selector:
-    apps: MERN-AUTH-JENKS-K8S-service
+    apps: mern-auth-jenks-k8s-service
