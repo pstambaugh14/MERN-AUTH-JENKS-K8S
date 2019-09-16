@@ -10,7 +10,7 @@ def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 pipeline {
 //    agent {
 //        any {
-  agent docker
+  agent any
   tools {nodejs "node"}
 //      image 'node:10.16.3'
 //        registryUrl 'https://registry.az1'
