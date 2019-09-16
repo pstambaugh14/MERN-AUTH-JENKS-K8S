@@ -17,6 +17,6 @@ spec:
         image: pstambaugh14/mern-auth-docker:development
         ports:
         - containerPort: 3000
-          name: frontEnd
+          name: frontend
         - containerPort: 5000
-          name: backEnd
+          name: backend
