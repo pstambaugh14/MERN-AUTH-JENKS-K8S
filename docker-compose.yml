@@ -7,7 +7,7 @@ services:
 #       - "/opt/test/docker_test:/app"
 #       - "./routes/api:/app"
 #        - "./config/:/opt/test/MERN-AUTH-ANSIBLE/config/"
-#        - "/home/patrick/Apps/MERN-AUTH-DOCKER/config:/var/lib/jenkins/workspace/mern_docker/config"
+        - "/home/patrick/Apps/MERN-AUTH-DOCKER/config:/var/lib/jenkins/workspace/mern_docker/config"
       ports:
         - "5000:5000"
         - "3000:3000"
