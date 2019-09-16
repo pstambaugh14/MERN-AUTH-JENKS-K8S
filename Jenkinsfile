@@ -42,15 +42,17 @@ agent {
         stage('Build') {
             steps {
               echo 'Building..'
+              sh 'docker-compose build'
 //Fix Broken Packages
 //              sh '"$CUR_DIR_VAR"/fix.sh'
 //              sh '"$CUR_DIR_VAR"/client/fix.sh'
 // Install npm
-              sh 'node -v'
-              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
-              sh '/usr/bin/sudo npm install'
-              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
-              sh '/usr/bin/sudo npm run client-install'
+//              sh 'sudo su jenkins'
+//              sh 'node -v'
+//              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
+//              sh '/usr/bin/sudo npm install'
+//              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
+//              sh '/usr/bin/sudo npm run client-install'
 
 //Fix Broken Packages
 //              sh 'sleep 30'
