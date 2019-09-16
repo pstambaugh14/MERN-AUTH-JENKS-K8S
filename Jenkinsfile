@@ -11,7 +11,7 @@ pipeline {
 //    agent {
 //        any {
   agent any
-  tools {nodejs "node"}
+  tools {nodejs "Node.js 10.16.3"}
 //      image 'node:10.16.3'
 //        registryUrl 'https://registry.az1'
 //        registryCredentialsId 'pstambaugh14'
