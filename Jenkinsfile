@@ -44,6 +44,7 @@ pipeline {
             steps {
               echo 'Building..'
               //sh '/usr/bin/docker-compose build'
+              sh 'eval $(minikube docker-env)'
               sh 'docker-compose up -d'
 //Fix Broken Packages
 //              sh '"$CUR_DIR_VAR"/fix.sh'
