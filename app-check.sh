@@ -35,7 +35,7 @@ fi
 echo ""
 echo "..... Deployment Phase Started :: Building Docker Container :: ......"
 #	docker run -d -p 8180:8080 --name devops_pipeline_demo devops_pipeline_demo
-docker run -d --name mern_docker_full_stack_app -p 5000:5000 -p 3000:3000 -v /home/patrick/Apps/MERN-AUTH-DOCKER:/var/lib/jenkins/workspace/mern_docker/:ro mern_docker_full_stack_app:latest
+docker run -d --name mern_docker_full_stack_app -p 5000:5000 -p 3000:3000 -v /home/patrick/Apps/MERN-AUTH-JENKS-K8S:/var/lib/jenkins/workspace/mern_docker/:ro mern_docker_full_stack_app:latest
 #echo ""
 #echo "..... Deployment Phase Started :: Building Docker Container :: ......"
 #	docker run -d -p 8180:8080 --name devops_pipeline_demo devops_pipeline_demo
