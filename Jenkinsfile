@@ -43,7 +43,8 @@ pipeline {
         stage('Build') {
             steps {
               echo 'Building..'
-              sh '/usr/bin/docker-compose build'
+              //sh '/usr/bin/docker-compose build'
+              sh 'docker-compose up -d'
 //Fix Broken Packages
 //              sh '"$CUR_DIR_VAR"/fix.sh'
 //              sh '"$CUR_DIR_VAR"/client/fix.sh'
