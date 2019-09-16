@@ -73,8 +73,8 @@ pipeline {
  stage('Deploy Application') {
       steps {
       withKubeConfig([
-//                    credentialsId: 'patrick'
-                    caCertificate: '/home/patrick/.minikube/ca.crt',
+//                    credentialsId: 'jenkins'
+                    caCertificate: '/var/lib/jenkins/.kube/config'
 //                    serverUrl: '<api-server-address>',
 //                    contextName: '<context-name>',
 //                    clusterName: '<cluster-name>',
