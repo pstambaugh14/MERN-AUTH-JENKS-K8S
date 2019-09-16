@@ -7,21 +7,20 @@ def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
-def PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin"
 pipeline {
 //    agent {
 //        any {
-agent {
-    docker {
-        image 'node:10.16.3'
+  agent docker
+  tools {nodejs "node"}
+//      image 'node:10.16.3'
 //        registryUrl 'https://registry.az1'
 //        registryCredentialsId 'pstambaugh14'
 //        args '-v /var/jenkins_home/.m2:/root/.m2'
 //    }
 
 //            image 'node:10.16.3'
-            }
-          }
+//            }
+
           environment {
             CUR_DIR_VAR = "${WORKSPACE}"
             PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin"
