@@ -88,7 +88,7 @@ pipeline {
                   sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
           //Update the imagetag to the latest version
 //                  sh("sed -i.bak 's#${project}/${appName}:${imageVersion}#${imageTag}#' ./*.yaml")
-                  sh("sed -i.bak 's#pstambaugh14/mern-auth-jenks-k8s:${imageVersion}#${imageTag}#' ./*.yaml")
+                  sh("sed -i.bak 's#MERN-AUTH-JENKS-K8S/mern-auth-docker:${imageVersion}#${imageTag}#' ./*.yaml") //or mern_docker_full_stack_app
                   //Create or update resources
                   sh("kubectl --namespace=${namespace} apply -f ./deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./service.yaml")
