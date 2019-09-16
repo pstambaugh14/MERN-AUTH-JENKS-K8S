@@ -7,6 +7,7 @@ def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+//def PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin
 pipeline {
 //    agent {
 //        any {
@@ -23,6 +24,7 @@ agent {
           }
           environment {
             CUR_DIR_VAR = "${WORKSPACE}"
+            PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin"
           }
     stages {
       stage('Checkout') {
@@ -42,7 +44,7 @@ agent {
         stage('Build') {
             steps {
               echo 'Building..'
-              sh 'docker-compose build'
+              sh '/usr/bin/docker-compose build'
 //Fix Broken Packages
 //              sh '"$CUR_DIR_VAR"/fix.sh'
 //              sh '"$CUR_DIR_VAR"/client/fix.sh'
