@@ -14,7 +14,7 @@ agent {
     docker {
         image 'node:10.16.3'
 //        registryUrl 'https://registry.az1'
-        registryCredentialsId 'pstambaugh14'
+//        registryCredentialsId 'pstambaugh14'
 //        args '-v /var/jenkins_home/.m2:/root/.m2'
 //    }
 
