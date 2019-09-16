@@ -47,7 +47,9 @@ agent {
 //              sh '"$CUR_DIR_VAR"/client/fix.sh'
 // Install npm
               sh 'node -v'
+              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
               sh 'npm install'
+              sh 'rm -f "$CUR_DIR_VAR"/client/package-lock.json && npm cache clean --force'
               sh 'npm run client-install'
 
 //Fix Broken Packages
