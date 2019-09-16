@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mern-auth-jenks-k8s-service
-        image: pstambaugh14/mern-auth-docker:development
+        image: pstambaugh14/mern-auth-docker:latest
         ports:
         - containerPort: 3000
           name: frontend
