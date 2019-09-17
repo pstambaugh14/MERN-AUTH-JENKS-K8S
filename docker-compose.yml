@@ -4,6 +4,7 @@ services:
     full_stack_app:
       build: .
       image: testname
+      container_name: testname
       volumes:
 #       - "/opt/test/docker_test:/app"
 #       - "./routes/api:/app"
