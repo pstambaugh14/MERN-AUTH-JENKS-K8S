@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: task-pv-storage
           persistentVolumeClaim:
-          claimName: task-pv-claim
+            claimName: task-pv-claim
       containers:
         - name: mern-auth-jenks-k8s-service
           imagePullPolicy: IfNotPresent
