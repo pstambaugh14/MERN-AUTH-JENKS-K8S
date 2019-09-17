@@ -46,7 +46,7 @@ pipeline {
             steps {
               echo 'Building..'
               //sh '/usr/bin/docker-compose build'
-              sh 'eval $(minikube docker-env)'
+//              sh 'eval $(minikube docker-env)'
               //sh 'docker pull'
               sh 'docker-compose up -d'
 //Fix Broken Packages
