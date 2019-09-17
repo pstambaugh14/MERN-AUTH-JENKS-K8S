@@ -5,13 +5,13 @@ metadata:
   name: mern-auth-jenks-k8s
   namespace: development
   labels:
-    app: mern-auth-jenks-k8s
+    app: mern-auth
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        apps: mern-auth-jenks-k8s
+        apps: mern-auth
     spec:
 #Note: key.js need to be added to /mnt/data directory on minikube host for this volume storage method to work
       volumes:
@@ -19,9 +19,9 @@ spec:
           persistentVolumeClaim:
             claimName: task-pv-claim
       containers:
-        - name: mern-auth-jenks-k8s-service
+        - name: mern-auth
           imagePullPolicy: IfNotPresent
-          image: localhost:5001/mern-auth-jenks-k8s_full_stack_app:latest
+          image: http://localhost:5001/mern-auth-jenks-k8s_full_stack_app:latest
 #          image: http://192.168.0.158:5001/testname:testname:latest
           ports:
             - containerPort: 3000
