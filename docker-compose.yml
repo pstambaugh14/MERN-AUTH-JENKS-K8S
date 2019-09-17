@@ -1,10 +1,10 @@
 version: '3.3'
 
 services:
-    full_stack_app:
+    mern-auth:
       build: .
-      image: testname
-      container_name: testname
+      image: mern-auth
+      container_name: mern-auth
       volumes:
 #       - "/opt/test/docker_test:/app"
 #       - "./routes/api:/app"

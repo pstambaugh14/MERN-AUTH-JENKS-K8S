@@ -2,7 +2,7 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: mern-auth-jenks-k8s
+  name: mern-auth
   namespace: development
   labels:
     app: mern-auth
