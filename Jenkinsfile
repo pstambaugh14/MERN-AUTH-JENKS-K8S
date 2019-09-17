@@ -1,13 +1,13 @@
 #!/usr/bin/groovy
 // Declarative Pipeline
-def project = 'MERN-AUTH-JENKS-K8S'
-def appName = 'MERN-AUTH-JENKS-K8S'
+def project = 'mern-auth-jenks-k8s'
+def appName = 'mern-auth'
 def serviceName = "${appName}-service"
 def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 //def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
-def feSvcName = "mern-auth-jenks-k8s"
+//def feSvcName = "mern-auth-jenks"
 pipeline {
 //    agent {
 //        any {
