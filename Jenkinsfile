@@ -7,7 +7,7 @@ def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 //def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
-//def feSvcName = "mern-auth-jenks"
+def feSvcName = "mern-auth-frontend"
 pipeline {
 //    agent {
 //        any {
