@@ -33,7 +33,8 @@ pipeline {
 }
         stage('Initialize') {
           steps {
-            sh 'echo env.feSvcName} - attempt at finding feSvcName variable'
+//            sh 'echo env.feSvcName} - attempt at finding feSvcName variable'
+              echo "${appName}"
 //            echo "${feSvcName} - attempt at finding feSvcName variable"
 //            echo 'env.CUR_DIR_VAR is now the working directory'
 //            echo 'env.WORKSPACE is the first - groovy'
