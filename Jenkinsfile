@@ -7,6 +7,7 @@ def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+def feSvcName = "mern-auth-jenks-k8s"
 pipeline {
 //    agent {
 //        any {
@@ -32,12 +33,13 @@ pipeline {
 }
         stage('Initialize') {
           steps {
-            echo 'env.CUR_DIR_VAR is now the working directory'
-            echo 'env.WORKSPACE is the first - groovy'
-            echo '"${WORKSPACE}" is the second - groovy'
-            sh 'echo $WORKSPACE is the first - shell'
-            sh 'echo env.WORKSPACE is the second - shell'
-            sh 'echo "${WORKSPACE}" is the third - shell'
+            sh 'echo $'
+//            echo 'env.CUR_DIR_VAR is now the working directory'
+//            echo 'env.WORKSPACE is the first - groovy'
+//            echo '"${WORKSPACE}" is the second - groovy'
+//            sh 'echo $WORKSPACE is the first - shell'
+//            sh 'echo env.WORKSPACE is the second - shell'
+//            sh 'echo "${WORKSPACE}" is the third - shell'
   }
 }
         stage('Build') {
@@ -108,7 +110,7 @@ pipeline {
                   sh("sed -i.bak 's#${project}/${appName}:${imageVersion}#${imageTag}#' ./*.yaml")
 //                  sh("sed -i.bak 's#${WORKSPACE}/mern_docker_full_stack_app:${imageVersion}#${imageTag}#' ./*.yaml") //or mern_docker_full_stack_app
                   //Create or update resources
-                  sh("kubectl --namespace=${namespace} apply -f ./pv-claim.yaml")
+//                  sh("kubectl --namespace=${namespace} apply -f ./pv-claim.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./service.yaml")
           //Grab the external Ip address of the service
