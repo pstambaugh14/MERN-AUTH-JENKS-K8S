@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: task-pv-volume
+  namespace: development
   labels:
     type: local
 spec:
@@ -16,4 +17,4 @@ spec:
 #kubectl apply -f https://k8s.io/examples/pods/storage/pv-volume.yaml
 
 #View information about the PersistentVolume:
-#kubectl get pv task-pv-volume    
+#kubectl get pv task-pv-volume
