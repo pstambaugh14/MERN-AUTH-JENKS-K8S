@@ -13,6 +13,7 @@ spec:
       labels:
         apps: mern-auth-jenks-k8s-service
     spec:
+#Note: key.js need to be added to /mnt/data directory on minikube host for this volume storage method to work
       volumes:
         - name: task-pv-storage
           persistentVolumeClaim:
