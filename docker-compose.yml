@@ -3,6 +3,7 @@ version: '3.3'
 services:
     full_stack_app:
       build: .
+      image: testname
       volumes:
 #       - "/opt/test/docker_test:/app"
 #       - "./routes/api:/app"
