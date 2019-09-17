@@ -1,10 +1,10 @@
 #!/bin/bash
-docker run -d \
-  -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 \
-  -p 5001:5001 \
-  --restart=always \
-  --name registry \
-  registry:latest
+#docker run -d \
+#  -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 \
+#  -p 5001:5001 \
+#  --restart=always \
+#  --name registry \
+#  registry:latest
 
 ####WORKING WITH HTTPS SORTA - RETRY WITH LETSENCRYPT? #####
 #docker run -d -p 5001:5001 --restart=always --name registry \
@@ -15,17 +15,31 @@ docker run -d \
 #  -e REGISTRY_HTTP_HOST=192.168.0.158 \
 #  registry:latest
 
+docker run -d -p 5001:5001 --restart=always --name registry \
+  -v /home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry
+#-v /home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/private3 \
+  -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 \
+  -e REGISTRY_HTTP_HOST=192.168.0.158 \
+  -e REGISTRY_HTTP_TLS_CERTIFICATE=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/cert.crt \
+  -e REGISTRY_HTTP_TLS_KEY=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/key.key \ 
+registry:latest
 
 
-#docker run -d -p 443:5001 --name registry \
+
+
+#docker run -d -p 5001:5001 --restart=always --name registry \
 #  -v `pwd`:/etc/docker/registry/ \
+#  -v /home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/certs3 \
+#  -v /home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/private3 \
 #  -v registry:/var/lib/registry \
 #  -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 \
-#  -e REGISTRY_HTTP_HOST=https://192.168.0.158 \
+#  -e REGISTRY_HTTP_HOST=192.168.0.158:5001 \
+#  -e REGISTRY_HTTP_TLS_CERTIFICATE=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/certs3/dhparam.pem \
+#  -e REGISTRY_HTTP_TLS_KEY=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/registry/private3/domain.key \  
 #  -e REGISTRY_HTTP_TLS_LETSENCRYPT_CACHEFILE=/etc/docker/registry/letsencrypt.json \
 #  -e REGISTRY_HTTP_TLS_LETSENCRYPT_EMAIL=admin@example.com \
 #  -e REGISTRY_PROXY_REMOTEURL=https://192.168.0.158 \
-#  registry:2
+#registry:latest
 
 
 ## https://docs.docker.com/registry/deploying/
