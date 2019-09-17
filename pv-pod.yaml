@@ -9,7 +9,7 @@ spec:
         claimName: task-pv-claim
   containers:
     - name: mern-auth-jenks-k8s-service
-      image: mern-auth-jenks-k8s-service
+      image: pstambaugh14/mern-auth-jenks-k8s-service:latest
       ports:
         - containerPort: 3000
           name: "frontend"
