@@ -6,7 +6,7 @@ def serviceName = "${appName}-service"
 def imageVersion = 'latest'
 def namespace = 'development'
 //def imageTag = "gcr.io/${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
-def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
+//def imageTag = "${project}/${appName}:${imageVersion}.${env.BUILD_NUMBER}"
 def feSvcName = "mern-auth-jenks-k8s"
 pipeline {
 //    agent {
@@ -108,7 +108,7 @@ pipeline {
                   // Create namespace if it doesn't exist
                   sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
           //Update the imagetag to the latest version
-                  sh("sed -i.bak 's#${project}/${appName}:${imageVersion}#${imageTag}#' ./*.yaml")
+                  //sh("sed -i.bak 's#${project}/${appName}:${imageVersion}#${imageTag}#' ./*.yaml")
 //                  sh("sed -i.bak 's#${WORKSPACE}/mern_docker_full_stack_app:${imageVersion}#${imageTag}#' ./*.yaml") //or mern_docker_full_stack_app
                   //Create or update resources
 //                  sh("kubectl --namespace=${namespace} apply -f ./pv-claim.yaml")
