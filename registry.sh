@@ -11,7 +11,8 @@ docker run -d -p 5001:5001 --restart=always --name registry \
   -v /home/patrick/Apps/MERN-AUTH-JENKS-K8S/certs:/home/patrick/Apps/MERN-AUTH-JENKS-K8S/certs \
   -e REGISTRY_HTTP_TLS_CERTIFICATE=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/certs/domain.crt \
   -e REGISTRY_HTTP_TLS_KEY=/home/patrick/Apps/MERN-AUTH-JENKS-K8S/certs/domain.key \
-  registry:2
+  -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 \
+  registry:latest
 
 
 

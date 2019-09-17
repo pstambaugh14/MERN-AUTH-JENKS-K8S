@@ -25,6 +25,9 @@ pipeline {
           environment {
             CUR_DIR_VAR = "${WORKSPACE}"
             PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin"
+            CA_PATH = "/var/lib/jenkins/.docker"
+            CLIENT_CERT_PATH = "/var/lib/jenkins/.docker"
+            TLS_KEY_PATH = "/var/lib/jenkins/.docker"
           }
     stages {
       stage('Checkout') {
