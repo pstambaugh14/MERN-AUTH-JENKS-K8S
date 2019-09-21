@@ -42,6 +42,7 @@ spec:
         - mountPath: "/var/lib/jenkins/workspace/mern_docker/config"
           name: task-pv-storage
     - name: mongodb-container
+      imagePullPolicy: Always
       image: mongo:4.2.0
 #      command: mongodb
       volumeMounts:
