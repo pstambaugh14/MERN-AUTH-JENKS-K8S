@@ -32,7 +32,7 @@ spec:
     - name: mern-auth
       #imagePullPolicy: IfNotPresent
       imagePullPolicy: Always
-      image: pstambaugh14/mern-auth-jenks-k8s:latest
+      image: pstambaugh14/mern-auth-jenks-k8s
       ports:
         - containerPort: 3000
           name: "frontend"
