@@ -31,7 +31,7 @@ spec:
   containers:
     - name: mern-auth
       imagePullPolicy: IfNotPresent
-      image: pstambaugh14/mern-auth-jenks-k8s
+      image: pstambaugh14/mern-auth-jenks-k8s:latest
       ports:
         - containerPort: 3000
           name: "frontend"
