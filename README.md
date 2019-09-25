@@ -17,6 +17,7 @@ This project uses the following technologies:
 - [Build a Login/Auth App with the MERN Stack — Part 3 (Linking Redux with React Components)](https://blog.bitsrc.io/build-a-login-auth-app-with-the-mern-stack-part-3-react-components-88190f8db718)
 
 # MERN-AUTH-DOCKER
+
 created by: Patrick Stambaugh
 Dockerized version of MERN-based authentication application.
 This is one of my first projects so please be kind.
