@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Pod
 metadata:
-<<<<<<< HEAD
   name: mern-auth
   namespace: development
 spec:
@@ -13,7 +12,6 @@ spec:
     - name: mern-auth
 #      image: pstambaugh14/mern-auth-jenks-k8s_full_stack_app:latest
       image: pstambaugh14/mern-auth-jenks-k8s
-=======
   name: mern-auth-jenks-k8s
   namespace: development
 spec:
@@ -25,14 +23,12 @@ spec:
     - name: mern-auth-jenks-k8s-service
 #      image: pstambaugh14/mern-auth-jenks-k8s_full_stack_app:latest
       image: localhost:5001/mern-auth-jenks-k8s_full_stack_app:latest
->>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
       ports:
         - containerPort: 3000
           name: "frontend"
         - containerPort: 5000
           name: backend
       volumeMounts:
-<<<<<<< HEAD
         - mountPath: "/var/lib/jenkins/workspace/mern_docker/"
           name: task-pv-volume
   volumes:
@@ -40,7 +36,5 @@ spec:
     - name: task-pv-storage
       hostPath:
         path: data/config
-=======
         - mountPath: "/var/lib/jenkins/workspace/mern_docker/config"
           name: task-pv-storage
->>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a

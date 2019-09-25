@@ -1,20 +1,16 @@
 ---
-<<<<<<< HEAD
 apiVersion: v1
 #apiVersion: apps/v1beta1
 #kind: Deployment
 kind: Pod
-=======
 apiVersion: apps/v1beta1
 kind: Deployment
->>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 metadata:
   name: mern-auth
   namespace: development
   labels:
     app: mern-auth
 spec:
-<<<<<<< HEAD
   hostname: mern-auth
   subdomain: default-subdomain
 #  replicas: 1
@@ -106,28 +102,26 @@ spec:
 #              configMapKeyRef:
 #                name: nodejs-configmaps
 #                key: URI
-=======
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        apps: mern-auth
-    spec:
+#  replicas: 1
+#  template:
+#    metadata:
+#      labels:
+#        apps: mern-auth
+#    spec:
 #Note: key.js need to be added to /mnt/data directory on minikube host for this volume storage method to work
-      volumes:
-        - name: task-pv-storage
-          persistentVolumeClaim:
-            claimName: task-pv-claim
-      containers:
-        - name: mern-auth
-          imagePullPolicy: IfNotPresent
-          image: 192.168.0.158:5001/mern-auth:latest
-          ports:
-            - containerPort: 3000
-              name: "frontend"
-            - containerPort: 5000
-              name: backend
-          volumeMounts:
-            - mountPath: "/var/lib/jenkins/workspace/mern_docker/config"
-              name: task-pv-storage
->>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
+#      volumes:
+#        - name: task-pv-storage
+#          persistentVolumeClaim:
+#            claimName: task-pv-claim
+#      containers:
+#        - name: mern-auth
+#          imagePullPolicy: IfNotPresent
+#          image: 192.168.0.158:5001/mern-auth:latest
+#          ports:
+#            - containerPort: 3000
+#              name: "frontend"
+#            - containerPort: 5000
+#              name: backend
+#          volumeMounts:
+#            - mountPath: "/var/lib/jenkins/workspace/mern_docker/config"
+#              name: task-pv-storage

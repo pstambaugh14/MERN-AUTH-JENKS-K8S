@@ -1,5 +1,4 @@
 version: '3.3'
-
 services:
     mern-auth:
       build: .
@@ -14,18 +13,15 @@ services:
         - "5000:5000"
         - "3000:3000"
 #        - "27017:27017"
-<<<<<<< HEAD
 #    database: # name of the third service
 #      image: mongo:4.2.0 # specify image to build container from
 #      ports:
 #        - "27017:27017" # specify port forwarding
 
-=======
-    database: # name of the third service
-      image: mongo:4.2.0 # specify image to build container from
-      ports:
-        - "27017:27017" # specify port forwarding
->>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
+#    database: # name of the third service
+#      image: mongo:4.2.0 # specify image to build container from
+#      ports:
+#        - "27017:27017" # specify port forwarding
 #      expose:
 #        - "5000"
 #        - "3000"
