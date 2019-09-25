@@ -6,8 +6,8 @@ metadata:
 #  labels:
 #    name: mern-auth
   namespace: development
-  labels:
-    app: mern-auth
+#  labels:
+#    app: mern-auth
 spec:
   selector:
     app: mern-auth
@@ -16,8 +16,8 @@ spec:
       protocol: TCP
       port: 3000
       targetPort: 3000
-    - name: backend
-      protocol: TCP
-      port: 5000
-      targetPort: 5000
-  type: NodePort  
+#    - name: backend
+#      protocol: TCP
+#      port: 5000
+#      targetPort: 5000
+  type: NodePort

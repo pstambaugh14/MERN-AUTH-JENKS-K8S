@@ -32,7 +32,7 @@ spec:
     - name: mern-auth
       #imagePullPolicy: IfNotPresent
       imagePullPolicy: Always
-      image: pstambaugh14/mern-auth-jenks-k8s2
+      image: pstambaugh14/mern-auth-jenks-k8s
       ports:
         - containerPort: 3000
           name: "frontend"
@@ -41,22 +41,24 @@ spec:
       volumeMounts:
         - mountPath: "/var/lib/jenkins/workspace/mern_docker/config"
           name: task-pv-storage
-    - name: mongodb-container
-      imagePullPolicy: Always
-      image: mongo:4.2.0
+#    - name: mongodb-container
+#      imagePullPolicy: Always
+#      image: mongo:4.2.0
 #      command: mongodb
-      volumeMounts:
-        - mountPath: /var/lib/mongo
-          name: data2
-      ports:
-      - containerPort: 27017
-        name: mongodbport
-      env:
-      - name: URI
-        valueFrom:
-          configMapKeyRef:
-            name: nodejs-configmaps
-            key: URI
+#      volumeMounts:
+#        - mountPath: /var/lib/mongo
+#          name: data2
+#      ports:
+#      - containerPort: 27017
+#        name: mongodbport
+#      env:
+#      - name: URI
+#        valueFrom:
+#          configMapKeyRef:
+#            name: nodejs-configmaps
+#            key: URI
+
+#---
 #kind: StatefulSet
 #metadata:
 #  name: mongo-stateful
