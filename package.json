@@ -20,9 +20,27 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.3.11",
+<<<<<<< HEAD
     "nodemon": "^1.19.2",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "validator": "^10.9.0"
   }
+=======
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pstambaugh14/MERN-AUTH-DOCKER.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pstambaugh14/MERN-AUTH-DOCKER/issues"
+  },
+  "homepage": "https://github.com/pstambaugh14/MERN-AUTH-DOCKER#readme"
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 }

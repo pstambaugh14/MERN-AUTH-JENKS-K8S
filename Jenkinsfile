@@ -25,12 +25,21 @@ pipeline {
           environment {
             CUR_DIR_VAR = "${WORKSPACE}"
             PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/jenkins/npm/bin"
+<<<<<<< HEAD
 //            CA_PATH = "/var/lib/jenkins/.docker"
 //            CLIENT_CERT_PATH = "/var/lib/jenkins/.docker"
 //            TLS_KEY_PATH = "/var/lib/jenkins/.docker"
 //            DOCKER_HOST = "https://192.168.0.158:2376"
 //            DOCKER_CERT_PATH = "/var/lib/jenkins/.docker/"
 //            DOCKER_TLS_VERIFY = "1"
+=======
+            CA_PATH = "/var/lib/jenkins/.docker"
+            CLIENT_CERT_PATH = "/var/lib/jenkins/.docker"
+            TLS_KEY_PATH = "/var/lib/jenkins/.docker"
+            DOCKER_HOST = "https://192.168.0.158:2376"
+            DOCKER_CERT_PATH = "/var/lib/jenkins/.docker/"
+            DOCKER_TLS_VERIFY = "1"
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 //            DOCKER_HOST = "https://192.168.0.158:2376"
           }
     stages {
@@ -57,6 +66,7 @@ pipeline {
               //sh '/usr/bin/docker-compose build'
 //              sh 'eval $(minikube docker-env)'
               //sh 'docker pull'
+<<<<<<< HEAD
               sh '"$CUR_DIR_VAR"/fix.sh'
               sh 'npm install'
               sh 'sleep 5'
@@ -68,6 +78,11 @@ pipeline {
 //Fix Broken Packages
               sh '"$CUR_DIR_VAR"/fix.sh'
               sh 'rm -rf config'
+=======
+              sh 'docker-compose up -d'
+//Fix Broken Packages
+//              sh '"$CUR_DIR_VAR"/fix.sh'
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 //              sh '"$CUR_DIR_VAR"/client/fix.sh'
 // Install npm
 //              sh 'sudo su jenkins'
@@ -121,8 +136,11 @@ pipeline {
 //        switch (namespace) {
              //Roll out to Dev Environment
 //             case "development":
+<<<<<<< HEAD
                   //sh("kubectl --namespace=${namespace} apply -f ")
 
+=======
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
                   // Create namespace if it doesn't exist
                   sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
           //Update the imagetag to the latest version
@@ -132,8 +150,11 @@ pipeline {
 //                  sh("kubectl --namespace=${namespace} apply -f ./pv-claim.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./deployment.yaml")
                   sh("kubectl --namespace=${namespace} apply -f ./service.yaml")
+<<<<<<< HEAD
                   //Add or Update pv-pod volume claim and mount
                   //sh("kubectl --namespace=${namespace} apply -f ./pv-pod.yaml")
+=======
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
           //Grab the external Ip address of the service
                   sh("echo http://`kubectl --namespace=${namespace} get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
 //                  break
@@ -166,9 +187,17 @@ pipeline {
   }
 }
         //Clean Workspace at the end of Build
+<<<<<<< HEAD
 //        post {
 //          always {
 //            cleanWs()
 //    }
 //  }
+=======
+        post {
+          always {
+            cleanWs()
+    }
+  }
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 }

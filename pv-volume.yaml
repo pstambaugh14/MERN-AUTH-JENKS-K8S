@@ -12,7 +12,11 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
+<<<<<<< HEAD
     path: "/data/config"
+=======
+    path: "/mnt/data"
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 #Create the PersistentVolume:
 #kubectl apply -f https://k8s.io/examples/pods/storage/pv-volume.yaml
 

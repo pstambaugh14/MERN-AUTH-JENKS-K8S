@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # mern-auth
 
 ![Final App](https://i.postimg.cc/tybZb8dL/final-MERNAuth.gif)
@@ -15,6 +16,25 @@ This project uses the following technologies:
 - [Build a Login/Auth App with the MERN Stack — Part 1 (Backend)](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669)
 - [Build a Login/Auth App with the MERN Stack — Part 2 (Frontend & Redux Setup)](https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-2-frontend-6eac4e38ee82)
 - [Build a Login/Auth App with the MERN Stack — Part 3 (Linking Redux with React Components)](https://blog.bitsrc.io/build-a-login-auth-app-with-the-mern-stack-part-3-react-components-88190f8db718)
+=======
+# MERN-AUTH-DOCKER
+created by: Patrick Stambaugh
+Dockerized version of MERN-based authentication application.
+This is one of my first projects so please be kind.
+This isn't of much use other than that of practice for myself. 
+Either way, I am open to positive or constructive criticism, please no trolls.
+
+# Credits:
+MERN Authentication app source code is courtesy of: Rishi Prasad (https://blog.bitsrc.io/@rishipr)
+You can check out his original project with installation instructions at: https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669 .
+You can also directly view or download his code at: https://github.com/rishipr/mern-auth . 
+
+## License
+
+Created by Patrick Stambaugh. 
+https://github.com/pstambaugh14/MERN-AUTH-DOCKER
+
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 
 ## Configuration
 
@@ -26,8 +46,16 @@ module.exports = {
   secretOrKey: "secret"
 };
 ```
+<<<<<<< HEAD
 
 ## Quick Start
+=======
+## Starting MERN-AUTH-DOCKER using Docker Compose:
+Start up your docker container with: "docker-compose up" in the directory where you cloned this.  And that should be it - enjoy!
+
+
+## Quick Start Reference - Docker Container will run the following on build and execution automatically:
+>>>>>>> e547b3e77583be3c8de92b6c78317e2fb285a75a
 
 ```javascript
 // Install dependencies for server & client
