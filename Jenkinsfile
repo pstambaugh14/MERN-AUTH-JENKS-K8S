@@ -31,12 +31,12 @@ pipeline {
 //            DOCKER_HOST = "https://192.168.0.158:2376"
 //            DOCKER_CERT_PATH = "/var/lib/jenkins/.docker/"
 //            DOCKER_TLS_VERIFY = "1"
-            CA_PATH = "/var/lib/jenkins/.docker"
-            CLIENT_CERT_PATH = "/var/lib/jenkins/.docker"
-            TLS_KEY_PATH = "/var/lib/jenkins/.docker"
-            DOCKER_HOST = "https://192.168.0.158:2376"
-            DOCKER_CERT_PATH = "/var/lib/jenkins/.docker/"
-            DOCKER_TLS_VERIFY = "1"
+//            CA_PATH = "/var/lib/jenkins/.docker"
+//            CLIENT_CERT_PATH = "/var/lib/jenkins/.docker"
+//            TLS_KEY_PATH = "/var/lib/jenkins/.docker"
+//            DOCKER_HOST = "https://192.168.0.158:2376"
+//            DOCKER_CERT_PATH = "/var/lib/jenkins/.docker/"
+//            DOCKER_TLS_VERIFY = "1"
 //            DOCKER_HOST = "https://192.168.0.158:2376"
           }
     stages {
